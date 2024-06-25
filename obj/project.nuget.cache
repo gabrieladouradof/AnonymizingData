@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S+uB/AgutYomqnrsPQN7cCKQU1ACDr45T2xoDrERzwseD/pQY/4EjNTliP2WyzJZEUrbFxpGSoyEDQfIy5cZUQ==",
+  "dgSpecHash": "ofyCvKlFOgXB3gIPp8j+L0KBqRbaHy74IRYvMkd7bUHhum9A1Ut0avpWBnffiSYfDtID7zJ7lmZM6w9oti2Z0Q==",
   "success": true,
-  "projectFilePath": "c:\\dev\\ProtectedDba\\ProtectedDba.csproj",
+  "projectFilePath": "C:\\dev\\ProtectedDba\\ProtectedDba.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GabrielaDourado\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\GabrielaDourado\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

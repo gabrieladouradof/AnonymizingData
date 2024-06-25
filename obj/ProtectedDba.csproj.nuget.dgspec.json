@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\dev\\ProtectedDba\\ProtectedDba.csproj": {}
+    "C:\\dev\\ProtectedDba\\ProtectedDba.csproj": {}
   },
   "projects": {
-    "c:\\dev\\ProtectedDba\\ProtectedDba.csproj": {
+    "C:\\dev\\ProtectedDba\\ProtectedDba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\dev\\ProtectedDba\\ProtectedDba.csproj",
+        "projectUniqueName": "C:\\dev\\ProtectedDba\\ProtectedDba.csproj",
         "projectName": "ProtectedDba",
-        "projectPath": "c:\\dev\\ProtectedDba\\ProtectedDba.csproj",
+        "projectPath": "C:\\dev\\ProtectedDba\\ProtectedDba.csproj",
         "packagesPath": "C:\\Users\\GabrielaDourado\\.nuget\\packages\\",
-        "outputPath": "c:\\dev\\ProtectedDba\\obj\\",
+        "outputPath": "C:\\dev\\ProtectedDba\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\GabrielaDourado\\AppData\\Roaming\\NuGet\\NuGet.Config",
