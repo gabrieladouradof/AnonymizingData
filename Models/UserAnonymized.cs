@@ -7,5 +7,7 @@ namespace ProtectedDba.Models {
         public string? Cpf {get; set;}
 
         public string? gender {get; set;}
+
+        public string? HashKey {get; set;}
     }
 }
