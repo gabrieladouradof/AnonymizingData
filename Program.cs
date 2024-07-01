@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-//using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using ProtectedDba.Controllers;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<AppDbContext>();
 
 var app = builder.Build();
 

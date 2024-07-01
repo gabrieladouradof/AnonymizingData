@@ -6,6 +6,7 @@ public class AppDbContext : DbContext
 {
     //User entity collection
     public DbSet<User> Users { get; set; } 
+    public DbSet<UserAnonymized> UserAnonymized { get; set; } 
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     { }
