@@ -98,3 +98,4 @@ C:\dev\ProtectedDba\obj\Debug\net8.0\ProtectedDba.pdb
 C:\dev\ProtectedDba\obj\Debug\net8.0\ProtectedDba.genruntimeconfig.cache
 C:\dev\ProtectedDba\obj\Debug\net8.0\ref\ProtectedDba.dll
 C:\dev\ProtectedDba\obj\Debug\net8.0\ProtectedDba.sourcelink.json
+C:\dev\ProtectedDba\bin\Debug\net8.0\Newtonsoft.Json.dll
