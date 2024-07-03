@@ -8,7 +8,7 @@ using ProtectedDba.Services;
 namespace ProtectedDba.Controllers {
   
    [ApiController]
-   [Route("api/[controller]")]
+   [Route("")]
      public class AnonimizeController : ControllerBase
      {
         private readonly AppDbContext _context;
@@ -23,7 +23,7 @@ namespace ProtectedDba.Controllers {
         }
          
     //POST request to receive JSON data
-    [HttpPost("anonimize")]
+    [HttpPost("/anonimize")]
      public async Task<IActionResult> AnonimizeData([FromBody] JObject requestData)
      {
          if (requestData["data"] is not JArray jsonArray) {
@@ -41,7 +41,7 @@ namespace ProtectedDba.Controllers {
          
          if (string.IsNullOrEmpty(originalName) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(originalCPF)) { continue; }
 
-         // Chama a função GenerateAnonimizedName para obter um nome fictício
+         //Calls the GenerateAnonymizedName function to obtain a fictitious name
          string anonimizedName = await _openAiService.GenerateAnonimizedName(originalName, gender);
          string hashedCpf = HashCPF(originalCPF, _hashKey);
 

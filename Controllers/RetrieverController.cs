@@ -30,7 +30,7 @@ namespace ProtectedDba.Controllers
          }
 
          var retrievedArray = new JArray(); //Creates a new empty JSON array
-
+         
          foreach(var item in jsonArray) 
          {
             string hashedCpf = item["cpf"]?.ToString() ?? string.Empty;
@@ -40,9 +40,11 @@ namespace ProtectedDba.Controllers
                     continue;
                 }
 
+               // Searches the database for an anonymized user whose CPF hash matches the provided CPF hash
                var userAnonymized = _context.UserAnonymized
                .FirstOrDefault(u => u.Cpf != null && HashCpf(u.Cpf, _hashKey) == hashedCpf); 
 
+               // If a matching anonymized user is found, add their data to a new JSON object
                if (userAnonymized != null)
                {
                     JObject retrievedItem = new JObject
