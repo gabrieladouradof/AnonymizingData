@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProtectedDba")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66e77e27e24c5d2b5fd7fb67aa60e8b045710217")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca6ad441f232e68d7f0659fa65d89b5dd0ea9b4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProtectedDba")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProtectedDba")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

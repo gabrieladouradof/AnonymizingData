@@ -1,11 +1,10 @@
-using Microsoft.Extensions.Configuration; // for configuration
+using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using ProtectedDba.Models;
-using System.Linq
-
+using System.Linq;
 
 namespace ProtectedDba.Controllers
 {
@@ -16,11 +15,11 @@ namespace ProtectedDba.Controllers
       private readonly AppDbContext _context;
       private readonly string _hashKey; //not nullable
 
-       // O parâmetro IConfiguration é utilizado para ler as configurações
+      //The IConfiguration parameter is used to read the configurations
       public RetrieverController(AppDbContext context, IConfiguration configuration)
       {
          _context = context; 
-         _hashKey = configuration.GetValue<string>("HashKey")?? throw new ArgumentNullException(nameof(configuration["HashKey"]), "HashKey configuration value is missing.");
+         _hashKey = configuration.GetValue<string>("HashKey")?? throw new ArgumentNullException("HashKey", "HashKey configuration value is missing.");
       }
 
       [HttpPost("retrieve")]
@@ -30,7 +29,7 @@ namespace ProtectedDba.Controllers
             return BadRequest("Invalid data format. 'data' should be an array");
          }
 
-         JArray retrievedArray = new JArray();
+         var retrievedArray = new JArray(); //Creates a new empty JSON array
 
          foreach(var item in jsonArray) 
          {
@@ -41,11 +40,11 @@ namespace ProtectedDba.Controllers
                     continue;
                 }
 
-                var userAnonymized = _context.UserAnonymized
-                    .FirstOrDefault(u => HashCpf(u.Cpf, _hashKey) == hashedCpf);
+               var userAnonymized = _context.UserAnonymized
+               .FirstOrDefault(u => u.Cpf != null && HashCpf(u.Cpf, _hashKey) == hashedCpf); 
 
-                if (userAnonymized != null)
-                {
+               if (userAnonymized != null)
+               {
                     JObject retrievedItem = new JObject
                     {
                         { "name", userAnonymized.Name },
@@ -67,7 +66,6 @@ namespace ProtectedDba.Controllers
                 string combinedInput = originalCPF + hashKey;
                 byte[] hashedBytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(combinedInput));
                 return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-
          }
       }
    }

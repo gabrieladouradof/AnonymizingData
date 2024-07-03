@@ -6,8 +6,7 @@ using ProtectedDba.Models;
 using ProtectedDba.Services;
 
 namespace ProtectedDba.Controllers {
-   
-   //routes
+  
    [ApiController]
    [Route("api/[controller]")]
      public class AnonimizeController : ControllerBase
@@ -15,6 +14,7 @@ namespace ProtectedDba.Controllers {
         private readonly AppDbContext _context;
         private readonly OpenAiService _openAiService;
         private readonly string _hashKey;
+        //controller constructor
         public AnonimizeController(AppDbContext context, OpenAiService openAiService, string HashKey)
         {
             _context = context;
@@ -26,22 +26,22 @@ namespace ProtectedDba.Controllers {
     [HttpPost("anonimize")]
      public async Task<IActionResult> AnonimizeData([FromBody] JObject requestData)
      {
-         if (requestData["data"] is not JArray jsonArray)
-         { return BadRequest("Invalid data format. 'data' should be an array");  }
+         if (requestData["data"] is not JArray jsonArray) {
+            return BadRequest("Invalid data format. 'data' should be an array");  }
 
-         JArray anonimizedArray = new JArray(); //Creates a new empty JSON array
+         var anonimizedArray = new JArray(); //Creates a new empty JSON array
 
          //extraction, anonymization and hashing of data
-         foreach(var item in jsonArray) 
-         {  
+         foreach(var item in jsonArray)
+          {             
             //ToString() ?? string.Empty; -  to ensure strings are not null.
             string originalName = item["Name"]?.ToString() ?? string.Empty;
             string gender = item["Gender"]?.ToString() ?? string.Empty;
             string originalCPF = item["Cpf"]?.ToString() ?? string.Empty;
          
-         if (string.IsNullOrEmpty(originalName) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(originalCPF))
-               {continue;}
+         if (string.IsNullOrEmpty(originalName) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(originalCPF)) { continue; }
 
+         // Chama a função GenerateAnonimizedName para obter um nome fictício
          string anonimizedName = await _openAiService.GenerateAnonimizedName(originalName, gender);
          string hashedCpf = HashCPF(originalCPF, _hashKey);
 
@@ -51,13 +51,12 @@ namespace ProtectedDba.Controllers {
             Name = anonimizedName,
             Cpf = hashedCpf,
             Gender = gender,
-            HashKey = _hashKey
          };            
 
          _context.UserAnonymized.Add(userAnonymized);
          _context.SaveChanges();
             
-            //new object Json for the anonimized dates
+         //new object Json for the anonimized dates
          JObject anonimizedItem = new JObject
          {
             {"name", anonimizedName},
@@ -69,7 +68,6 @@ namespace ProtectedDba.Controllers {
          }
          return Ok(anonimizedArray); //return hhtp200
      }
-
 
 //responsible for generating a SHA-256 hash of the original CPF, 
 //converting it into a hexadecimal string. This ensures that the CPF is securely anonymized.

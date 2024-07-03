@@ -99,3 +99,7 @@ C:\dev\ProtectedDba\obj\Debug\net8.0\ProtectedDba.genruntimeconfig.cache
 C:\dev\ProtectedDba\obj\Debug\net8.0\ref\ProtectedDba.dll
 C:\dev\ProtectedDba\obj\Debug\net8.0\ProtectedDba.sourcelink.json
 C:\dev\ProtectedDba\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\dev\ProtectedDba\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\dev\ProtectedDba\bin\Debug\net8.0\OpenAI.dll
+C:\dev\ProtectedDba\bin\Debug\net8.0\System.ClientModel.dll
+C:\dev\ProtectedDba\bin\Debug\net8.0\System.Memory.Data.dll
