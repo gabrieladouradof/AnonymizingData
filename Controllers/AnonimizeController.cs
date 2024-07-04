@@ -63,7 +63,7 @@ namespace ProtectedDba.Controllers {
             { "cpf", hashedCpf},
             { "gender", gender }
          };
-
+         
             anonimizedArray.Add(anonimizedItem); //add for the anonimizedarray
          }
          return Ok(anonimizedArray); //return hhtp200

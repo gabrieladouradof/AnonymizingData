@@ -55,7 +55,7 @@ namespace ProtectedDba.Controllers
                     };
 
                     retrievedArray.Add(retrievedItem);
-                }
+               }
             }
 
             return Ok(retrievedArray);
